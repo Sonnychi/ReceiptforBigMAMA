@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-
+// test
 //let basePostURL = "https://api.einvoice.nat.gov.tw/PB2CAPIVAN/invapp/InvApp"
 //var postURLencoded = "version=0.2&action=QryWinningList&invTerm=10702&appID=EINV0201801356453"
 
