@@ -69,7 +69,7 @@ class firstSubviewViewController: UIViewController {
                 //let text2 = try String(contentsOf: fileURL, encoding: .utf8)
                 if let data2 = try? Data(contentsOf: fileURL) {
                     
-                    print("data2 : \(data2)")
+//                    print("data2 : \(data2)")
                     
                     let decoder = JSONDecoder()
                     if let file10612 = try? decoder.decode(WebJSONDecodeModel.self, from: data2) {
