@@ -18,7 +18,7 @@ class firstSubviewViewController: UIViewController {
         super.viewDidLoad()
         
         let receiptManager = ReceiptManager.sharedInstance
-        receiptManager.currentDate()
+        
         receiptManager.getMonthReceiptNumber(year: 107, month: 3, completion: {(receiptNumber: MonthReceiptNumbers?) -> () in
             guard let receiptNumber = receiptNumber else { return }
             print(">>>>>\(receiptNumber.special200!)")
@@ -33,7 +33,7 @@ class firstSubviewViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         subTitleLabel.text = "中獎資訊"
         
-        checkWinningFile()
+//        checkWinningFile()
     }
 
 

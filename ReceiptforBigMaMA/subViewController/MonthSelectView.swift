@@ -11,7 +11,8 @@ import UIKit
 class MonthSelectView: UIView {
 
     var index = 0
-    var winningFileArray = ["107年 1.2 月","107年 3.4 月","107年 5.6 月","107年 7.8 月"]
+    let receiptManager = ReceiptManager.sharedInstance
+    //var winningFileArray = ["107年 1.2 月","107年 3.4 月","107年 5.6 月","107年 7.8 月"]
     
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var winningFileLabel: UILabel!
@@ -43,20 +44,37 @@ class MonthSelectView: UIView {
     }
     
     private func updateMonthLabel() {
-        winningFileLabel.text = winningFileArray[index]
+//        winningFileLabel.text = winningFileArray[index]
+       
+        winningFileLabel.text = "\(receiptManager.currentYear)\(receiptManager.currentMonth)"
+        
+        
+        // test
+        receiptManager.getCurrentMonthReceiptNumber(completion: {(receiptNumbers: MonthReceiptNumbers?) -> () in
+            if let receipt = receiptNumbers {
+                print(">>>>>>\(receipt.special200)")
+            }
+        })
     }
     // =========================================================================
     // MARK: - IBAction
     
     @IBAction func leftBtn(_ sender: UIButton) {
-        index = index - 1
-        if index < 0 { index = 0 }
+        
+        receiptManager.gotoPreviousMonth()
+//        index = index - 1
+//        if index < 0 { index = 0 }
         updateMonthLabel()
     }
     
     @IBAction func rightBtn(_ sender: UIButton) {
-        index = index + 1
-        if index == winningFileArray.count { index = winningFileArray.count - 1 }
+        
+        receiptManager.gotoNextMonth()
+//        index = index + 1
+//        if index == winningFileArray.count { index = winningFileArray.count - 1 }
         updateMonthLabel()
     }
+    
+  
+    
 }

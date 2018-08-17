@@ -12,12 +12,28 @@ class ReceiptManager: NSObject {
     
     static let sharedInstance = ReceiptManager()
     
+    var currentYear: Int = 0
+    var currentMonth: Int = 0
+    
     override init() {
-        super.init()        
+        super.init()
+        getCurrentDate()
+        
     }
     
+    func gotoNextMonth() {
+        currentMonth = currentMonth + 2
+    }
     
-    func currentDate() {
+    func gotoPreviousMonth() {
+        currentMonth = currentMonth - 2
+    }
+    
+    func getCurrentMonthReceiptNumber(completion: @escaping (MonthReceiptNumbers?) -> Void) {
+        getMonthReceiptNumber(year: currentYear, month: currentMonth, completion: completion)
+    }
+    
+    func getCurrentDate() {
         let date = Date()
         //        let formatter = DateFormatter()
         let calendar = Calendar.current
@@ -38,6 +54,8 @@ class ReceiptManager: NSObject {
         
         print("現在是\(year)年\(month)月\(day)日, 要找\(year)年\(receiptMonth)月的兌獎號碼清單")
 
+        currentYear = year
+        currentMonth = receiptMonth
     }
     
     
@@ -50,7 +68,7 @@ class ReceiptManager: NSObject {
         if let data = getReceiptData(receiptId: receiptId) {
             print(">>> read: \(data)")
             
-            let receiptNumber = MonthReceiptNumbers(data: data)
+            let receiptNumber = MonthReceiptNumbers(year: year, month: month, data: data)
             completion(receiptNumber)
         }
         else { // data not exist
@@ -58,7 +76,7 @@ class ReceiptManager: NSObject {
                 if let data = data {
                     print(">>> download: \(data)")
                     
-                    let receiptNumber = MonthReceiptNumbers(data: data)
+                    let receiptNumber = MonthReceiptNumbers(year: year, month: month, data: data)
                     completion(receiptNumber)
                 }
                 else {
