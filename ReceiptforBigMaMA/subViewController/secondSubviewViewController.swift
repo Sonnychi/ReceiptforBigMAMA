@@ -33,6 +33,8 @@ class secondSubviewViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        let receiptManager = ReceiptManager.sharedInstance
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,6 +45,7 @@ class secondSubviewViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         subTitleLabel.text = "手動輸入"
         updateMonthLabel()
+        
     }
     
     func updateMonthLabel() {

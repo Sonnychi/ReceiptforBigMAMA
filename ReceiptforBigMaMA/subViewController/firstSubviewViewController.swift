@@ -16,6 +16,13 @@ class firstSubviewViewController: UIViewController {
     @IBOutlet weak var subTitleLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let receiptManager = ReceiptManager.sharedInstance
+        receiptManager.currentDate()
+        receiptManager.getMonthReceiptNumber(year: 107, month: 3, completion: {(receiptNumber: MonthReceiptNumbers?) -> () in
+            guard let receiptNumber = receiptNumber else { return }
+            print(">>>>>\(receiptNumber.special200!)")
+        })
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,6 +32,7 @@ class firstSubviewViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         subTitleLabel.text = "中獎資訊"
+        
         checkWinningFile()
     }
 
@@ -34,19 +42,16 @@ class firstSubviewViewController: UIViewController {
         
     }
     
-//    func jsonDecode(){
-//        var webDecodeFile = Data.parseData() as! WebJSONDecode
-//    }
-    
     func checkWinningFile() {
         requestWithURLencoded(urlString: basePostURL, parameters: postURLencoded, completion: {(Data) -> Void in
             var webDecodeFile = Data.parseData() as! WebJSONDecodeModel
-            print("checkWinningFilea: \(webDecodeFile.invoYm)")
+//            print("checkWinningFilea: \(webDecodeFile.invoYm)")
             self.storeDataToFile(fileName: "\(webDecodeFile.invoYm)", data: Data)
         })
     }
     
     func storeDataToFile(fileName: String,data: Data){
+        
         let file = "\(fileName).text"
         print(file)
         //let text = "some text"
@@ -83,20 +88,20 @@ class firstSubviewViewController: UIViewController {
             
             //============ file path / URL  ==========
             let path = NSHomeDirectory() + "/Documents/"
-            print("路徑檔案: \(path)")
+//            print("路徑檔案: \(path)")
             let documentURL = URL(fileURLWithPath: path)
 //            print("檔案URL : \(documentURL)")
             
             //============ file search  ==========
-            let fileManager = FileManager()
-            do {
-                let fileList = try fileManager.contentsOfDirectory(atPath:NSHomeDirectory()+"/Documents")
-                for file in fileList {
-                    print(">\(file)")
-                }
-            }catch{
-                print("no file exit")
-            }
+//            let fileManager = FileManager()
+//            do {
+//                let fileList = try fileManager.contentsOfDirectory(atPath:NSHomeDirectory()+"/Documents")
+//                for file in fileList {
+//                    print(">\(file)")
+//                }
+//            }catch{
+//                print("no file exit")
+//            }
         }
     }
     

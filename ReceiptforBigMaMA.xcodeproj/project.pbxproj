@@ -22,6 +22,8 @@
 		E02E80DB21247AD8005BFD6E /* MonthSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02E80DA21247AD8005BFD6E /* MonthSelectView.swift */; };
 		E02E80DD21252ABE005BFD6E /* JSONDecodeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02E80DC21252ABE005BFD6E /* JSONDecodeModel.swift */; };
 		E02E80DF21252AFE005BFD6E /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02E80DE21252AFE005BFD6E /* NetworkRequest.swift */; };
+		E02E80E621268F29005BFD6E /* ReceiptManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02E80E521268F29005BFD6E /* ReceiptManager.swift */; };
+		E02E80E82126916F005BFD6E /* MonthReceiptNumbers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02E80E72126916F005BFD6E /* MonthReceiptNumbers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		E02E80DA21247AD8005BFD6E /* MonthSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthSelectView.swift; sourceTree = "<group>"; };
 		E02E80DC21252ABE005BFD6E /* JSONDecodeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDecodeModel.swift; sourceTree = "<group>"; };
 		E02E80DE21252AFE005BFD6E /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
+		E02E80E521268F29005BFD6E /* ReceiptManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptManager.swift; sourceTree = "<group>"; };
+		E02E80E72126916F005BFD6E /* MonthReceiptNumbers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthReceiptNumbers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +82,8 @@
 				E02E80BA2122CF9B005BFD6E /* Main.storyboard */,
 				E02E80CC2123F3E2005BFD6E /* mainCollectionViewCell.swift */,
 				E02E80B82122CF9B005BFD6E /* ViewController.swift */,
+				E02E80E521268F29005BFD6E /* ReceiptManager.swift */,
+				E02E80E72126916F005BFD6E /* MonthReceiptNumbers.swift */,
 				E02E80E02125BAE3005BFD6E /* subViewController */,
 				E02E80E32125DB3C005BFD6E /* JSONDecode */,
 				E02E80E42125DB4D005BFD6E /* NetWorkRequest */,
@@ -199,7 +205,9 @@
 				E02E80B72122CF9B005BFD6E /* AppDelegate.swift in Sources */,
 				E02E80D121240AA4005BFD6E /* secondSubviewViewController.swift in Sources */,
 				E02E80D521240AC9005BFD6E /* thirdSubviewViewController.swift in Sources */,
+				E02E80E621268F29005BFD6E /* ReceiptManager.swift in Sources */,
 				E02E80CD2123F3E2005BFD6E /* mainCollectionViewCell.swift in Sources */,
+				E02E80E82126916F005BFD6E /* MonthReceiptNumbers.swift in Sources */,
 				E02E80D721240AF9005BFD6E /* fourthSubviewViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
